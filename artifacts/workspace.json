@@ -1,0 +1,17 @@
+{
+  "root": "/home/dev/feedback/uid38815",
+  "B": "/home/dev/feedback/uid38815",
+  "sha": "6de39560a88346b13cce89eb2c1363802dfea069",
+  "wslDistro": "Ubuntu-26.04",
+  "source": {
+    "owner": "ComplianceAsCode",
+    "repo": "content",
+    "sha": "6de39560a88346b13cce89eb2c1363802dfea069"
+  },
+  "fork": {
+    "owner": "Rrr119",
+    "repo": "content",
+    "cloneUrl": "https://github.com/Rrr119/content.git"
+  },
+  "at": "2026-11-25T17:05:56.179Z"
+}

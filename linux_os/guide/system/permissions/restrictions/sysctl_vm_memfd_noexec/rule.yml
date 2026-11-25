@@ -1,0 +1,38 @@
+documentation_complete: true
+
+title: 'Enable Kernel Parameter to Restrict Executable memfds'
+
+description: '{{{ describe_sysctl_option_value(sysctl="vm.memfd_noexec", value="1") }}}'
+
+rationale: |-
+    Executable memory file descriptors (memfds) can be abused by attackers to
+    run payloads directly from memory without touching the filesystem.
+    Setting <tt>vm.memfd_noexec</tt> to <tt>1</tt> makes memfds created without
+    an explicit executable flag non-executable by default, reducing the
+    in-memory code execution attack surface.
+
+severity: medium
+
+references:
+    nist: CM-6(b)
+    srg: SRG-OS-000480-GPOS-00227
+
+{{{ complete_ocil_entry_sysctl_option_value(sysctl="vm.memfd_noexec", value="1") }}}
+
+fixtext: |-
+    Configure {{{ full_name }}} to restrict executable memfds with the following commands:
+    {{{ fixtext_sysctl(sysctl="vm.memfd_noexec", value="1") | indent(4) }}}
+
+srg_requirement: '{{{ full_name }}} must restrict the creation of executable memory file descriptors.'
+
+platform: system_with_kernel
+
+template:
+    name: sysctl
+    vars:
+        sysctlvar: vm.memfd_noexec
+        sysctlval: '1'
+        datatype: int
+        # Check both the runtime value (/proc/sys) and the persistent
+        # configuration (/etc/sysctl.conf, /etc/sysctl.d/*.conf, ...)
+        check_runtime: 'true'

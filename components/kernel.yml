@@ -206,6 +206,7 @@ rules:
 - sysctl_reapply_after_network
 - sysctl_user_max_user_namespaces
 - sysctl_user_max_user_namespaces_no_remediation
+- sysctl_vm_memfd_noexec
 - sysctl_vm_mmap_min_addr
 templates:
 - kernel_build_config
